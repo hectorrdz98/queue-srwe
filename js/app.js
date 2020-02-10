@@ -79,7 +79,6 @@ function createUser(username, user) {
 }
 
 function deleteUser(username) {
-    nextPos = user.pos;
     let userElem = $("#user-" + username);
     if (userElem) userElem.remove();
 }
