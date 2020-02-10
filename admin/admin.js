@@ -18,32 +18,25 @@ var usersRef = firebase.database().ref("users");
 let queueOLTeacher = $("#queueOL-teacher");
 let queueOLWaiting = $("#queueOL-waiting");
 
-let nextPos = 1;
+let user2Change = null;
 
-$("#queue-btn").click(function () {
+$("#next-btn").click(function () {
     if ($(this).hasClass('is-info')) {
-        let username = $("#username").val();
-        let name = $("#name").val();
-        if (username != '' && name != '') {
-            usersRef.child(username).set({
-                name: name,
-                pos: nextPos + 1,
-                status: 'queue'
-            });
-        }
+        usersRef.orderByChild("pos").limitToFirst(1).once("value", function(snapshot) {
+            user2Change = snapshot.key;  
+        });
+        usersRef.child(user2Change).set({
+            status: 'teacher'
+        });
         $(this).removeClass('is-info');
-        $(this).addClass('is-danger');
-        $(this).addClass('is-light');
-        $(this).text('Leave');
+        $(this).addClass('is-success');
+        $(this).text('Finish');
     } else {
-        let username = $("#username").val();
-        let name = $("#name").val();
+        deleteUser(user2Change);
         if (username != '' && name != '') {
-            usersRef.child(username).remove();
-            $(this).removeClass('is-danger');
-            $(this).removeClass('is-light');
+            $(this).removeClass('is-success');
             $(this).addClass('is-info');
-            $(this).text('Queue');
+            $(this).text('Next Student');
         }
     }
     

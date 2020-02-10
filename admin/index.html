@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QueueSRWE</title>
+
+    <link rel="shortcut icon" href="../resources/logo.jpg">
+    <link rel="favicon" href="../resources/logo.jpg">
+
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/bulma.min.css" rel="stylesheet">
+    <link href="../css/app.css" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <section class="hero is-dark is-fullheight">
+        <div class="hero-body">
+            <div class="columns" style="width: 100%;">
+                <div class="column main-div left-div">
+                    <h1 class="title">
+                        Welcome to SRWE Queue admin panel
+                    </h1>
+                    <h2 class="subtitle">
+                        Here you can check your students
+                    </h2>
+                    <div class="enqueue-container">
+                        <h5 class="title has-text-dark is-5">Actual student: </h5>
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <button id="next-btn" class="button is-info">
+                                    Next Student
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column main-div right-div">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Here's the actual queue
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <span class="tag is-primary">With teacher</span>
+                                <ol id="queueOL-teacher" type="I" style="margin-top: 0px;"></ol>
+                                <span class="tag is-info">Waiting</span>
+                                <ol id="queueOL-waiting" type="I" style="margin-top: 0px;"></ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="admin.js"></script>
+</body>
+</html>
