@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow-y: auto;
+}
+
+.enqueue-container {
+    background-color: white;
+    padding: 25px;
+    width: max-content;
+    border-radius: 5px;
+}
+
+.main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+#queue-btn {
+    transition: 0.2s;
+}
+
+@media only screen and (min-width: 769px) {
+    .left-div {
+        align-items: flex-end;
+        padding-right: 50px;
+    }
+    
+    .right-div {
+        align-items: flex-start;
+        padding-left: 50px;
+    }
+}
